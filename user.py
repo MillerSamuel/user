@@ -5,37 +5,30 @@ class User:
 
     def deposit(self,amount):
         self.balance+=amount
+        return self
 
     def withdrawl(self,amount):
         self.balance-=amount
+        return self
 
     def user_balance(self):
         print(f"User:{self.username}  Balance:{self.balance}")
+        return self
     
     def transfer(self,other_user,amount):
         self.balance-=amount
         other_user.balance+=amount
+        return self
 
 steve= User("Steve")
 timmy=User("Timmy")
 tom=User("Tom")
 
-steve.deposit(150)
-steve.deposit(100)
-steve.deposit(50)
-steve.withdrawl(50)
+steve.deposit(150).deposit(100).deposit(50).withdrawl(50)
 
-timmy.deposit(20)
-timmy.deposit(80)
-timmy.withdrawl(50)
-timmy.withdrawl(50)
+timmy.deposit(20).deposit(80).withdrawl(50).withdrawl(50)
 
-
-tom.deposit(500)
-tom.withdrawl(50)
-tom.withdrawl(100)
-tom.withdrawl(50)
-tom.transfer(timmy,100)
+tom.deposit(500).withdrawl(50).withdrawl(100).withdrawl(50).transfer(timmy,100)
 
 
 steve.user_balance()
